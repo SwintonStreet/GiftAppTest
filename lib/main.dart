@@ -115,7 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text('Login2'),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                );
+              },
               child: const Text('Register')
             ),
           ],
@@ -137,6 +142,22 @@ class SecondPage extends StatelessWidget {
       ),
       body: const Center(
         child: Text('Welcome to the second page!'),
+      ),
+    );
+  }
+}
+class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Third Page'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: const Center(
+        child: Text('Welcome to the third page!'),
       ),
     );
   }
