@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 214, 56, 8)),
       ),
-      home: const MyHomePage(title: 'Siyao is the best'),
+      home: const MyHomePage(title: 'Jake is doubly the best'),
     );
   }
 }
@@ -105,7 +105,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: () {}, child: const Text('Login2')),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+              child: const Text('Login2'),
+            ),
             ElevatedButton(
               onPressed: () {},
               child: const Text('Register')
@@ -113,6 +121,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       )
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Page'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: const Center(
+        child: Text('Welcome to the second page!'),
+      ),
     );
   }
 }
