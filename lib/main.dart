@@ -110,6 +110,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Icon(
+              Icons.card_giftcard,
+              size: 100,
+              color: Color.fromARGB(255, 172, 106, 8),
+            ),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
