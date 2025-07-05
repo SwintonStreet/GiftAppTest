@@ -23,14 +23,20 @@ void main() {
 
     test('Validates password length', () {
       expect(state.validatePassword(''), 'Please enter your password');
-      expect(state.validatePassword('short'), 'Password must be at least 8 characters');
+      expect(
+        state.validatePassword('short'),
+        'Password must be at least 8 characters',
+      );
       expect(state.validatePassword('longenough'), null);
     });
 
     test('Validates matching passwords', () {
       state.passwordController.text = 'password123';
       expect(state.validateRepeatPassword(''), 'Please repeat your password');
-      expect(state.validateRepeatPassword('different'), 'Passwords do not match');
+      expect(
+        state.validateRepeatPassword('different'),
+        'Passwords do not match',
+      );
       expect(state.validateRepeatPassword('password123'), null);
     });
   });

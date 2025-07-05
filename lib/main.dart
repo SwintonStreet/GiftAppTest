@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 214, 56, 8)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 214, 56, 8),
+        ),
       ),
       home: const MyHomePage(title: 'Jake is doubly the best'),
     );
@@ -55,8 +57,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // ignore: unused_field
   int _counter = 0;
 
+  // ignore: unused_element
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -122,11 +126,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
-              child: const Text('Register')
+              child: const Text('Register'),
             ),
           ],
         ),
-      )
+      ),
     );
   }
 }
@@ -141,12 +145,11 @@ class SecondPage extends StatelessWidget {
         title: const Text('Second Page'),
         backgroundColor: const Color.fromARGB(255, 172, 106, 8),
       ),
-      body: const Center(
-        child: Text('Welcome to the second page!'),
-      ),
+      body: const Center(child: Text('Welcome to the second page!')),
     );
   }
 }
+
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
 

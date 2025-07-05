@@ -6,12 +6,14 @@ class RegistrationPage extends StatefulWidget {
   @override
   State<RegistrationPage> createState() => RegistrationPageState();
 }
+
 // Expose the state for testing
 class RegistrationPageState extends State<RegistrationPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController repeatPasswordController = TextEditingController();
+  final TextEditingController repeatPasswordController =
+      TextEditingController();
   bool obscurePassword = true;
   bool obscureRepeatPassword = true;
 
@@ -56,9 +58,9 @@ class RegistrationPageState extends State<RegistrationPage> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration successful!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Registration successful!')));
       // Here you can handle registration logic
     }
   }
@@ -94,7 +96,11 @@ class RegistrationPageState extends State<RegistrationPage> {
                     labelText: 'Password',
                     border: const OutlineInputBorder(),
                     suffixIcon: IconButton(
-                      icon: Icon(obscurePassword ? Icons.visibility : Icons.visibility_off),
+                      icon: Icon(
+                        obscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
                       onPressed: () {
                         setState(() {
                           obscurePassword = !obscurePassword;
@@ -112,7 +118,11 @@ class RegistrationPageState extends State<RegistrationPage> {
                     labelText: 'Repeat Password',
                     border: const OutlineInputBorder(),
                     suffixIcon: IconButton(
-                      icon: Icon(obscureRepeatPassword ? Icons.visibility : Icons.visibility_off),
+                      icon: Icon(
+                        obscureRepeatPassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
                       onPressed: () {
                         setState(() {
                           obscureRepeatPassword = !obscureRepeatPassword;
