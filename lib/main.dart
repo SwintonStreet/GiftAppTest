@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'registration_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -151,14 +152,6 @@ class ThirdPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Third Page'),
-        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
-      ),
-      body: const Center(
-        child: Text('Welcome to the third page!'),
-      ),
-    );
+    return const RegistrationPage();
   }
 }
