@@ -18,3 +18,8 @@ repos:
         entry: cmd /c "dart format ."
         language: system
         types: [dart]
+      - id: flutter-test
+        name: flutter test
+        entry: cmd /c "flutter test"
+        language: system
+        types: [dart]
