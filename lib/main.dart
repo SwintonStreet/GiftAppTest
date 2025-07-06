@@ -187,7 +187,9 @@ class SecondPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FourthPage()),
+                    MaterialPageRoute(
+                      builder: (context) => const WishlistsPage(),
+                    ),
                   );
                 },
                 child: const Text('Login'),
@@ -209,8 +211,8 @@ class ThirdPage extends StatelessWidget {
   }
 }
 
-class FourthPage extends StatelessWidget {
-  const FourthPage({super.key});
+class WishlistsPage extends StatelessWidget {
+  const WishlistsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -257,13 +259,13 @@ class FourthPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Star'),
-          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Face'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Wishlists'),
+          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Friends'),
           BottomNavigationBarItem(
             icon: SizedBox.shrink(), // Placeholder for center
             label: '',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Group'),
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Groups'),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
@@ -271,9 +273,79 @@ class FourthPage extends StatelessWidget {
         ],
         currentIndex: 0,
         onTap: (int index) {
-          // Add navigation logic here if needed
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const WishlistsPage()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FriendsPage()),
+              );
+              break;
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const GroupPage()),
+              );
+              break;
+            case 4:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsPage()),
+              );
+              break;
+          }
         },
       ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: const Center(child: Text('Settings Page')),
+    );
+  }
+}
+
+class GroupPage extends StatelessWidget {
+  const GroupPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Groups'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: const Center(child: Text('Groups Page')),
+    );
+  }
+}
+
+class FriendsPage extends StatelessWidget {
+  const FriendsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Friends'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: const Center(child: Text('Friends Page')),
     );
   }
 }
