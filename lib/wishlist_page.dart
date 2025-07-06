@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'settings_page.dart';
 import 'friends_page.dart';
 import 'group_page.dart';
+import 'add_new_item.dart';
 
 class WishlistsPage extends StatelessWidget {
   const WishlistsPage({super.key});
@@ -13,57 +14,48 @@ class WishlistsPage extends StatelessWidget {
         title: const Text('My Wishlists'),
         backgroundColor: const Color.fromARGB(255, 172, 106, 8),
       ),
-      body: Stack(
-        children: [
-          // Main content can go here if needed
-          const SizedBox.expand(),
-          // Overlapping circular + button
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0, // Overlap the nav bar at the bottom
-            child: Center(
-              child: Container(
-                width: 72,
-                height: 72,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 214, 56, 8),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.add, size: 40, color: Colors.white),
-                  onPressed: () {
-                    // Add action for + button here
-                  },
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: const SizedBox.expand(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Wishlists'),
-          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Friends'),
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Wishlists',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.face),
+            label: 'Friends',
+          ),
           BottomNavigationBarItem(
-            icon: SizedBox.shrink(), // Placeholder for center
+            icon: Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 214, 56, 8),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white, width: 3),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 6,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: const Icon(Icons.add, size: 32, color: Colors.white),
+            ),
             label: '',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Groups'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'Groups',
+          ),
+          const BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
         ],
-        currentIndex: 0,
+        currentIndex: 2, // Center selected by default
         onTap: (int index) {
           switch (index) {
             case 0:
@@ -76,6 +68,12 @@ class WishlistsPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const FriendsPage()),
+              );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddNewItemPage()),
               );
               break;
             case 3:
