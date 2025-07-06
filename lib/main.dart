@@ -151,27 +151,48 @@ class SecondPage extends StatelessWidget {
         title: const Text('Login'),
         backgroundColor: const Color.fromARGB(255, 172, 106, 8),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text(
+              'Username',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
             TextField(
               decoration: const InputDecoration(
-                labelText: 'Username',
+                labelText: 'Enter your username',
                 border: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
+            const Text(
+              'Password',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
             TextField(
               obscureText: true,
               decoration: const InputDecoration(
-                labelText: 'Password',
+                labelText: 'Enter your password',
                 border: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 32),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FourthPage()),
+                  );
+                },
+                child: const Text('Login'),
+              ),
+            ),
           ],
         ),
       ),
@@ -185,5 +206,74 @@ class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const RegistrationPage();
+  }
+}
+
+class FourthPage extends StatelessWidget {
+  const FourthPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Wishlists'),
+        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
+      ),
+      body: Stack(
+        children: [
+          // Main content can go here if needed
+          const SizedBox.expand(),
+          // Overlapping circular + button
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0, // Overlap the nav bar at the bottom
+            child: Center(
+              child: Container(
+                width: 72,
+                height: 72,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 214, 56, 8),
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 8,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.add, size: 40, color: Colors.white),
+                  onPressed: () {
+                    // Add action for + button here
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Star'),
+          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Face'),
+          BottomNavigationBarItem(
+            icon: SizedBox.shrink(), // Placeholder for center
+            label: '',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Group'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+        currentIndex: 0,
+        onTap: (int index) {
+          // Add navigation logic here if needed
+        },
+      ),
+    );
   }
 }
