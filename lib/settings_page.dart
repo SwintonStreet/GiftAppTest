@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'my_profile_page.dart';
 import 'account_settings.dart';
+import 'about_me.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -21,6 +22,16 @@ class SettingsPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const MyProfilePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.info_outline),
+            title: const Text('About Me'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AboutMePage()),
               );
             },
           ),
