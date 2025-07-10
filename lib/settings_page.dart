@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'my_profile_page.dart';
+import 'account_settings.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -46,36 +48,6 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class MyProfilePage extends StatelessWidget {
-  const MyProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Profile'),
-        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
-      ),
-      body: const Center(child: Text('My Profile Page')),
-    );
-  }
-}
-
-class AccountSettingsPage extends StatelessWidget {
-  const AccountSettingsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Account Settings'),
-        backgroundColor: const Color.fromARGB(255, 172, 106, 8),
-      ),
-      body: const Center(child: Text('Account Settings Page')),
     );
   }
 }
