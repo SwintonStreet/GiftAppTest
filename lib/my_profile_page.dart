@@ -95,32 +95,6 @@ class MyProfilePage extends StatelessWidget {
               },
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.email),
-            title: const Text('Email'),
-            subtitle: const Text('john.doe@email.com'), // Placeholder
-            trailing: IconButton(
-              icon: const Icon(Icons.edit),
-              onPressed: () {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(const SnackBar(content: Text('Edit Email')));
-              },
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.lock),
-            title: const Text('Password'),
-            subtitle: const Text('********'),
-            trailing: IconButton(
-              icon: const Icon(Icons.edit),
-              onPressed: () {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(const SnackBar(content: Text('Edit Password')));
-              },
-            ),
-          ),
         ],
       ),
     );

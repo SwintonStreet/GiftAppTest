@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'settings_page.dart';
 import 'friends_page.dart';
 import 'group_page.dart';
+import 'add_new_wishlist.dart';
 import 'add_new_item.dart';
 
 class WishlistsPage extends StatelessWidget {
@@ -14,7 +15,58 @@ class WishlistsPage extends StatelessWidget {
         title: const Text('My Wishlists'),
         backgroundColor: const Color.fromARGB(255, 172, 106, 8),
       ),
-      body: const SizedBox.expand(),
+      body: Stack(
+        children: [
+          const SizedBox.expand(),
+          Positioned(
+            left: 24,
+            right: 24,
+            bottom: 80, // Just above the navigation bar
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddNewWishlistPage(),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.orange[50],
+                  borderRadius: BorderRadius.circular(32),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.add, color: Color.fromARGB(255, 214, 56, 8)),
+                    SizedBox(width: 12),
+                    Text(
+                      'Add New Wishlist',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 214, 56, 8),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
