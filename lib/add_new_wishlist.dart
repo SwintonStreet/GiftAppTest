@@ -59,7 +59,7 @@ class _AddNewWishlistPageState extends State<AddNewWishlistPage> {
             DropdownButtonFormField<String>(
               value: selectedVisibility,
               decoration: const InputDecoration(
-                labelText: 'Visibility',
+                labelText: 'Privacy',
                 border: OutlineInputBorder(),
               ),
               items: const [
